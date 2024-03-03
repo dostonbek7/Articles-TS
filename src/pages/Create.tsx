@@ -5,11 +5,10 @@ import "react-quill/dist/quill.snow.css";
 import useFetch from "../hooks/useFetch";
 
 function Create() {
-  const form = useRef<HTMLFormElement>(null)
+  const form = useRef<HTMLFormElement>(null);
   const [value, setValue] = useState("");
   const { data, addNewPost } = useFetch("http://localhost:3000/news", "POST");
   console.log(data);
-
 
   const [title, setTitle] = useState("");
   const [posted, setPosted] = useState("");
@@ -38,11 +37,11 @@ function Create() {
     };
     addNewPost(newArticle);
 
-    setImgUrl('')
-    setPosted('')
-    setTitle('')
-    setUrl('')
-    setValue('')
+    setImgUrl("");
+    setPosted("");
+    setTitle("");
+    setUrl("");
+    setValue("");
   };
 
   return (
@@ -51,7 +50,8 @@ function Create() {
         Create articles
       </h1>
       <form
-      ref={form}
+        ref={form}
+        data-netlify="true"
         autoComplete="off"
         onSubmit={handleSubmit}
         className="max-w-[500px] md:max-w-[800px] p-5 border rounded-lg shadow-lg mx-auto"
