@@ -22,7 +22,7 @@ function useFetch(url: string, method: string = "GET") {
 
   useEffect(() => {
     const fetchData = async (newPost?: object) => {
-      setIsPending(false);
+      setIsPending(true);
       try {
         const req = await fetch(url, {
           ...newPost,

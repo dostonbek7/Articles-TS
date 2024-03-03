@@ -9,7 +9,7 @@ function SingleNews() {
 
   if(isPending){
     return <div className="spinner">
-      <span className="loader"></span>
+      <span className="loader-two"></span>
     </div>
   }
   if (error) {
