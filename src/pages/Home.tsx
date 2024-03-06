@@ -2,11 +2,9 @@ import useFetch from "../hooks/useFetch";
 import { newsInfo } from "../feature/newsFeature";
 import { Link } from "react-router-dom";
 import { MdDeleteOutline } from "react-icons/md";
-import { useState } from "react";
 
 function Home() {
   const { data, isPending, error } = useFetch("http://localhost:3000/news");
-  const [id, setId] = useState("");
 
   if (isPending) {
     return (
