@@ -1,14 +1,14 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import useFetch from "../hooks/useFetch";
 
 function Create() {
-  const form = useRef<HTMLFormElement>(null);
   const [value, setValue] = useState("");
   const { data, addNewPost } = useFetch("http://localhost:3000/news", "POST");
   console.log(data);
+
 
   const [title, setTitle] = useState("");
   const [posted, setPosted] = useState("");
@@ -50,7 +50,6 @@ function Create() {
         Create articles
       </h1>
       <form
-        ref={form}
         data-netlify="true"
         autoComplete="off"
         onSubmit={handleSubmit}

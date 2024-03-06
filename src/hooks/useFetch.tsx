@@ -19,6 +19,11 @@ function useFetch(url: string, method: string = "GET") {
       body: JSON.stringify(post),
     });
   };
+  const deletePost = () => {
+    setNewPost({
+      method: "DELETE",
+    });
+  };
 
   useEffect(() => {
     const fetchData = async (newPost?: object) => {
@@ -45,8 +50,11 @@ function useFetch(url: string, method: string = "GET") {
     if (method == "GET") {
       fetchData();
     }
+    if (newPost && method == "DELETE") {
+      fetchData(newPost);
+    }
   }, [url, method, newPost]);
-  return { data, error, isPending, addNewPost };
+  return { data, error, isPending, addNewPost, deletePost };
 }
 
 export default useFetch;
